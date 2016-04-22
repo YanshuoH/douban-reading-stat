@@ -75,3 +75,18 @@ func TestSave(t *testing.T) {
 
   tearDown()
 }
+
+func TestUpdate(t *testing.T) {
+  con := setup()
+  assert := assert.New(t)
+
+  userModel, _ := Save(userModelAsset1, con)
+
+  userModel.Name = "testing"
+  Update(userModel, con)
+
+  userModelUpdated, _ := Get(userModelAsset1.UserId, con)
+  assert.Equal(userModel.Name, userModelUpdated.Name, "Repository", "Should be the updated name value")
+
+  tearDown()
+}
