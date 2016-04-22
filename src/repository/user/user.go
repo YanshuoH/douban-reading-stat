@@ -32,3 +32,13 @@ func Save(user models.User, con *mgo.Database) (models.User, error) {
 
   return user, err
 }
+
+func Update(user models.User, con *mgo.Database) (models.User, error) {
+  query := bson.M{"userId": user.UserId}
+  err := con.C(models.CollectionUser).Remove(query)
+  if err != nil {
+    return user, err
+  }
+
+  return Save(user, con)
+}
