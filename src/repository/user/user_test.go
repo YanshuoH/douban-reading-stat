@@ -47,12 +47,12 @@ func TestGet(t *testing.T) {
   user, err := Save(userModelAsset1, con)
   assert.Nil(err, "Repository save", "Should not be an error")
 
-  user, err = Get(user.UserId, con)
-  assert.Equal(userModelAsset1.UserId, user.UserId, "Repository", "Should get the same user object")
+  userModel, err := Get(user.UserId, con)
+  assert.Equal(userModelAsset1.UserId, userModel.UserId, "Repository", "Should get the same user object")
   assert.Nil(err, "Repository get", "Should not be an error")
 
   // Not found case
-  user, err = Get("234567834567", con)
+  _, err = Get("234567834567", con)
   assert.NotNil(err, "Repository", "Should be an error")
   assert.EqualError(err, "not found", "Repository second get", "Should be a not found error")
 

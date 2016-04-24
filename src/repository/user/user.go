@@ -9,8 +9,8 @@ import(
   "models"
 )
 
-func Get(userId string, con *mgo.Database) (models.User, error) {
-  user := models.User{}
+func Get(userId string, con *mgo.Database) (*models.User, error) {
+  user := &models.User{}
 
   // Try to get user by id
   err := con.C(models.CollectionUser).Find(bson.M{"userId": userId}).One(&user)
