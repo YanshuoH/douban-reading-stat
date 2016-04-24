@@ -1,149 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Douban Reading Statistics</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="./node_modules/html5shiv/dist/html5shiv.js"></script>
-      <script src="./node_modules/respond/dest/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body id="home">
-    <div class="navbar navbar-default navbar-fixed-top navbar-transparent">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="./" class="navbar-brand">Douban Reading Statistics</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li><a href="#">2016</a></li>
-            <li><a href="#">2015</a></li>
-          </ul>
+<head>
+  {{ template "head.tmpl" }}
+</head>
+<body id="entry">
+  {{ template "nav.tmpl" }}
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/YanshuoH" target="_blank">View on Github</a></li>
-          </ul>
+<div class="splash" id="profilForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 caption">
+                <h1 id="welcome">Welcome!</h1>
+                <h3 id="formMessage">This web app will generate your personal reading statistics.</h3>
+                <form class="row" id="profilUrlForm">
+                    <fieldset class="form-group col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label for="profilUrl">Enter your profile url: </label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control col-lg-6" id="profilUrlInput" placeholder="Eg. https://www.douban.com/people/2274326/">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <button class="btn btn-success" id="submit">Submit</button>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
-    <div id="yearCount" class="splash">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-12 caption">
-            <div><img class="logo img-circle" src="https://img3.doubanio.com/icon/up2274326-10.jpg"></div>
-            <h1 id="#welcome">Welcome 优</h1>
-            <h1>Statistics for 2016</h1>
-            <h2>Total books count: 38</h2>
-            <h2>Last year: 25</h2>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <section id="monthCount">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Every Month</h1>
-            <h3>Top 3: Oct, Dec, Sep</h3>
-          </div>
-          <div class="col-lg-12">
-            <div id="monthCountChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="ratingCount">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Ratings Percentage</h1>
-            <h3>Top 3: 4 stars, 5 stars, 3 stars</h3>
-          </div>
-          <div class="col-lg-12">
-            <div id="ratingChart" ></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="authorCount">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Author Percentage</h1>
-            <h3>Top 3: [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫</h3>
-          </div>
-          <div class="col-lg-12">
-            <div id="authorChart" ></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="translatorCount">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Translator Percentage</h1>
-            <h3>Top 3: [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫</h3>
-          </div>
-          <div class="col-lg-12">
-            <div id="translatorChart" ></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="publisherCount">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Publisher Percentage</h1>
-            <h3>Top 3: [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫</h3>
-          </div>
-          <div class="col-lg-12">
-            <div id="publisherChart" ></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="posters-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Covers Wall</h1>
-          </div>
-          <div class="col-lg-12" id="posters-wall">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer splash">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
+<footer class="navbar navbar-fixed-bottom footer">
+    <div class="row">
+        <div class="col-lg-12">
             <p>Made by <a href="https://github.com/YanshuoH">YanshuoH</a></p>
             <p>For <a href="https://www.douban.com/people/2274326/">优</a></p>
             <p class="license">Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-          </div>
         </div>
-      </div>
-    </footer>
-
-    <script src="/public/bundle.js"></script>
-  </body>
+    </div>
+</footer>
+</body>
