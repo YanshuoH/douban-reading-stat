@@ -17,8 +17,10 @@ const (
   RECYCLE_PERIOD = 24
 )
 
-func Index()  {
-
+func Index(c *gin.Context)  {
+  c.HTML(200, "index.html", gin.H{
+      "title": "Main website",
+  })
 }
 
 func Entry(c *gin.Context)  {

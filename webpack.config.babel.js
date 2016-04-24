@@ -4,6 +4,7 @@ let config = {
   entry: path.join(__dirname, 'src/webpack', 'index.js'), // We'll create this file later, when we write the frontend code
   output: {
     path: path.join(__dirname, 'src/public'),
+    publicPath: '/public/',
     filename: 'bundle.js'
   },
   module: {
@@ -17,8 +18,16 @@ let config = {
         loaders: ['style', 'css']
       },
       {
-        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, // Use the file-loader for fonts
+        test: /\.(ttf|eot|svg|woff(?:2)?)$/, // Use the file-loader for fonts
         loaders: ['file-loader']
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loaders: ['file-loader?img/[name].[ext]']
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(?:2)?)(\?[a-z0-9=.]+)$/,
+        loaders: ['url-loader']
       }
     ]
   }

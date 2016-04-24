@@ -25,7 +25,7 @@ func main() {
   router := gin.Default()
 
   // Set html render options
-  router.LoadHTMLGlob("templates/*")
+  router.LoadHTMLGlob("./src/templates/*")
 
   router.RedirectTrailingSlash = true
 	router.RedirectFixedPath = true
@@ -34,9 +34,10 @@ func main() {
   router.Use(middlewares.ConnectDb)
 
   // Statics
-  router.Static("/public", "./public")
+  router.Static("/public", "./src/public")
 
   // Routing list
+  router.GET("/", controllers.Index)
   router.GET("/entry", controllers.Entry)
 
   // Start listening
