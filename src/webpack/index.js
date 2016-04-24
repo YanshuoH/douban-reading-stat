@@ -10,4 +10,4 @@ require('!!script!../../node_modules/bootstrap/dist/js/bootstrap.min.js')
 require('!!script!../../node_modules/highcharts/highcharts.js')
 
 require('./js/hicharts-theme.js')
-// require('./js/boot')
+require('./js/boot')
