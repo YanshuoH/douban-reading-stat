@@ -38,9 +38,9 @@ func main() {
 
   // Routing list
   router.GET("/", controllers.Index)
-  // router.GET("/user/:id", controllers.StatPage)
+  router.GET("/user/:userId", controllers.StatPage)
   router.GET("/api/user", controllers.SearchUser)
-  // router.GET("/api/user/:id", controllers.GetUser)
+  router.GET("/api/user/:userId", controllers.GetUser)
 
   // Start listening
   port := Port
