@@ -30,7 +30,13 @@ let config = {
         loaders: ['url-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ]
 };
 
 export default config;
