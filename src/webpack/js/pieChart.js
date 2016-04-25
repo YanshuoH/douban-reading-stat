@@ -65,6 +65,28 @@ class PieChart {
     }
   }
 
+  // Represent dataset["result"]["2015"]["translator"]
+  renderTranslator(result) {
+    var translatorPie = []
+    for (var translator in result) {
+      translatorPie.push({
+        name: translator,
+        y: result[translator]
+      });
+    }
+
+    this.translatorChart = new this.Highcharts.Chart(
+      this.getHighchartOption('Translator', translatorPie, this.translatorChartSelector)
+    )
+
+    // Top 3
+    this.translatorTop3Container.empty()
+    let sorted = sortObjectByValue(result)
+    for (let i = 0; i < 3; i ++) {
+      this.translatorTop3Container.append(`<li>${sorted[i]}: ${result[sorted[i]]}</li>`)
+    }
+  }
+
   getHighchartOption(seriesName, data, selector) {
     return {
         chart: {
