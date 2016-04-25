@@ -43,6 +43,28 @@ class PieChart {
     }
   }
 
+  // Represent dataset["result"]["2015"]["author"]
+  renderAuthor(result) {
+    var authorPie = []
+    for (var author in result) {
+      authorPie.push({
+        name: author,
+        y: result[author]
+      });
+    }
+
+    this.authorChart = new this.Highcharts.Chart(
+      this.getHighchartOption('Author', authorPie, this.authorChartSelector)
+    )
+
+    // Top 3
+    this.authorTop3Container.empty()
+    let sorted = sortObjectByValue(result)
+    for (let i = 0; i < 3; i ++) {
+      this.authorTop3Container.append(`<li>${sorted[i]}: ${result[sorted[i]]}</li>`)
+    }
+  }
+
   getHighchartOption(seriesName, data, selector) {
     return {
         chart: {
