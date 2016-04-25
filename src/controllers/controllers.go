@@ -96,6 +96,8 @@ func StatPage(c *gin.Context) {
   c.HTML(200, "stat.html", gin.H{
     "status": 200,
     "userId": userModel.UserId,
+    "username": userModel.Name,
+    "avatar": userModel.Avatar,
   })
 }
 
