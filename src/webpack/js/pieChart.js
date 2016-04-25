@@ -87,6 +87,28 @@ class PieChart {
     }
   }
 
+  // Represent dataset["result"]["2015"]["publisher"]
+  renderPublisher(result) {
+    var publisherPie = [];
+    for (var publisher in result) {
+      publisherPie.push({
+        name: publisher,
+        y: result[publisher]
+      });
+    }
+
+    this.publisherChart = new this.Highcharts.Chart(
+      this.getHighchartOption('Publisher', publisherPie, this.publisherChartSelector)
+    )
+
+    // Top 3
+    this.publisherTop3Container.empty()
+    let sorted = sortObjectByValue(result)
+    for (let i = 0; i < 3; i ++) {
+      this.publisherTop3Container.append(`<li>${sorted[i]}: ${result[sorted[i]]}</li>`)
+    }
+  }
+
   getHighchartOption(seriesName, data, selector) {
     return {
         chart: {
