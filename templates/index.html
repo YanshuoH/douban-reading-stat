@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ template "head.tmpl" }}
+</head>
+<body id="entry">
+  {{ template "nav.tmpl" }}
+
+<div class="splash" id="profilForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 caption">
+                <h1 id="welcome">Welcome!</h1>
+                <h3 id="formMessage">This web app will generate your personal reading statistics.</h3>
+                <form class="row" id="profilUrlForm">
+                    <fieldset class="form-group col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label for="profilUrl">Enter your profile url: </label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control col-lg-6" id="profilUrlInput" placeholder="Eg. https://www.douban.com/people/2274326/">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <button class="btn btn-success" id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="navbar navbar-fixed-bottom footer">
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Made by <a href="https://github.com/YanshuoH">YanshuoH</a></p>
+            <p>For <a href="https://www.douban.com/people/2274326/">优</a></p>
+            <p class="license">Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
+        </div>
+    </div>
+</footer>
+</body>

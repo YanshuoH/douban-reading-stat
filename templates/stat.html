@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ template "head.tmpl" }}
+  <body id="home">
+    {{ template "nav.tmpl" }}
+    <div id="userId" data-id="{{ .userId }}"></div>
+    <div id="yearCount" class="splash">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12 caption">
+            <div><img class="logo img-circle" id="userAvatar"src="{{ .avatar }}"></div>
+            <h1>Welcome {{ .username }}</h1>
+            <h1>Statistics for <span id="yearCountYear"></span></h1>
+            <h2>Total books count: <span id="yearCountCount"></span></h2>
+            <h2>Previous year: <span id="yearCountPrevious"></span></h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="monthCount">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Per Month</h1>
+            <h3>Top 3:</h3>
+            <ol class="col-lg-3 col-lg-offset-5" id="monthTop3">
+            </ol>
+          </div>
+          <div class="col-lg-12">
+            <div id="monthCountChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ratingCount">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Rating Percentage</h1>
+            <ol class="col-lg-3 col-lg-offset-5" id="ratingTop3">
+            </ol>
+          </div>
+          <div class="col-lg-12">
+            <div id="ratingChart"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="authorCount">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Author Percentage</h1>
+            <ol class="col-lg-3 col-lg-offset-5" id="authorTop3">
+            </ol>
+          </div>
+          <div class="col-lg-12">
+            <div id="authorChart"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="translatorCount">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Translator Percentage</h1>
+            <ol class="col-lg-3 col-lg-offset-5" id="translatorTop3">
+            </ol>
+          </div>
+          <div class="col-lg-12">
+            <div id="translatorChart"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publisherCount">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Publisher Percentage</h1>
+            <ol class="col-lg-3 col-lg-offset-5" id="publisherTop3">
+            </ol>          </div>
+          <div class="col-lg-12">
+            <div id="publisherChart"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="posters-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>
+              <button class="btn btn-primary-outline btn-lg" id="posterWallStart">
+                <i class="fa fa-play faa-horizontal animated"></i>&nbsp;&nbsp;Click to load covers wall</button>
+              </h1>
+          </div>
+          <div class="col-lg-12" id="posterWall">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer splash">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Made by <a href="https://github.com/YanshuoH">YanshuoH</a></p>
+            <p>For <a href="https://www.douban.com/people/2274326/">优</a></p>
+            <p class="license">Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
