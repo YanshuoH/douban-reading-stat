@@ -18,7 +18,6 @@ function form() {
   // Listener
   $("#submit").click(function() {
     let url = $('#profilUrlInput').val()
-    console.log(url)
     messageContainer.html(messageMapping['1'])
 
     api.getUser(url, res => {
