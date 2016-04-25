@@ -3,17 +3,17 @@
   {{ template "head.tmpl" }}
   <body id="home">
     {{ template "nav.tmpl" }}
-
+    <div id="userId" data-id="{{ .userId }}"></div>
     <div id="yearCount" class="splash">
       <div class="container">
 
         <div class="row">
           <div class="col-lg-12 caption">
-            <div><img class="logo img-circle" src="https://img3.doubanio.com/icon/up2274326-10.jpg"></div>
-            <h1 id="#welcome">Welcome 优</h1>
-            <h1>Statistics for 2016</h1>
-            <h2>Total books count: 38</h2>
-            <h2>Last year: 25</h2>
+            <div><img class="logo img-circle" id="userAvatar"src="{{ .avatar }}"></div>
+            <h1>Welcome {{ .username }}</h1>
+            <h1>Statistics for <span id="yearCountYear"></span></h1>
+            <h2>Total books count: <span id="yearCountCount"></span></h2>
+            <h2>Previous year: <span id="yearCountPrevious"></span></h2>
           </div>
         </div>
 
@@ -24,8 +24,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Every Month</h1>
-            <h3>Top 3: Oct, Dec, Sep</h3>
+            <h1>Per Month</h1>
+            <h3>Top 3:</h3>
+            <ol class="col-lg-3 col-lg-offset-5" id="monthTop3">
+            </ol>
           </div>
           <div class="col-lg-12">
             <div id="monthCountChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -38,11 +40,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Ratings Percentage</h1>
-            <h3>Top 3: 4 stars, 5 stars, 3 stars</h3>
+            <h1>Rating Percentage</h1>
+            <ol class="col-lg-3 col-lg-offset-5" id="ratingTop3">
+            </ol>
           </div>
           <div class="col-lg-12">
-            <div id="ratingChart" ></div>
+            <div id="ratingChart"></div>
           </div>
         </div>
       </div>
@@ -53,10 +56,11 @@
         <div class="row">
           <div class="col-lg-12">
             <h1>Author Percentage</h1>
-            <h3>Top 3: [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫</h3>
+            <ol class="col-lg-3 col-lg-offset-5" id="authorTop3">
+            </ol>
           </div>
           <div class="col-lg-12">
-            <div id="authorChart" ></div>
+            <div id="authorChart"></div>
           </div>
         </div>
       </div>
@@ -67,10 +71,11 @@
         <div class="row">
           <div class="col-lg-12">
             <h1>Translator Percentage</h1>
-            <h3>Top 3: [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫</h3>
+            <ol class="col-lg-3 col-lg-offset-5" id="translatorTop3">
+            </ol>
           </div>
           <div class="col-lg-12">
-            <div id="translatorChart" ></div>
+            <div id="translatorChart"></div>
           </div>
         </div>
       </div>
@@ -81,10 +86,10 @@
         <div class="row">
           <div class="col-lg-12">
             <h1>Publisher Percentage</h1>
-            <h3>Top 3: [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫, [美] 艾萨克·阿西莫夫</h3>
-          </div>
+            <ol class="col-lg-3 col-lg-offset-5" id="publisherTop3">
+            </ol>          </div>
           <div class="col-lg-12">
-            <div id="publisherChart" ></div>
+            <div id="publisherChart"></div>
           </div>
         </div>
       </div>
@@ -94,9 +99,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Covers Wall</h1>
+            <h1>
+              <button class="btn btn-primary-outline btn-lg" id="posterWallStart">
+                <i class="fa fa-play faa-horizontal animated"></i>&nbsp;&nbsp;Click to load covers wall</button>
+              </h1>
           </div>
-          <div class="col-lg-12" id="posters-wall">
+          <div class="col-lg-12" id="posterWall">
           </div>
         </div>
       </div>
