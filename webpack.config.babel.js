@@ -1,6 +1,6 @@
 import path from 'path'; // Join paths with the right type of slash
 import webpack from 'webpack'
-
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 let config = {
   entry: path.join(__dirname, 'webpack', 'index.js'), // We'll create this file later, when we write the frontend code
   output: {
@@ -16,7 +16,7 @@ let config = {
       },
       {
         test: /\.css$/, // Use the style-loader for all .css files
-        loaders: ['style', 'css']
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test: /\.(ttf|eot|svg|woff(?:2)?)$/, // Use the file-loader for fonts
@@ -36,7 +36,8 @@ let config = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
-    })
+    }),
+    new ExtractTextPlugin("bundle.css")
   ]
 };
 
