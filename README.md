@@ -1,5 +1,7 @@
 # Douban reading statistics
 
+## Now deploying at : http://www.luroufan.tech/
+
 ## Motivation
 1. Self-training: learning Golang and ES6, along with their tools like Gin, Webpack and so on
 2. Build a useful tool for reading funs
