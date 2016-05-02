@@ -90,6 +90,10 @@ body#entry {
     margin-bottom: 10px
 }
 
+.footer {
+  margin-top: 50px;
+}
+
 footer p {
     clear: left;
     margin-bottom: 0
