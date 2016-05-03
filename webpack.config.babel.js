@@ -37,7 +37,10 @@ let config = {
       $: "jquery",
       jQuery: "jquery"
     }),
-    new ExtractTextPlugin("bundle.css")
+    new ExtractTextPlugin("bundle.css"),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })
   ]
 };
 
